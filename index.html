@@ -12,6 +12,40 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Cookbook Club Recipe Database</h1>
+      <!-- required 'container' class wrapper for our rows/columns -->
+        <div class="container">
+          <div class="row">
+            <div id= "row-1" class="col-sm-12 col-lg-12 box">Welcome to Cookbook Club!</div>
+
+            <div id= "row-2" class="col-sm-12 col-lg-12 box">IMAGE</div>
+
+            <div id= "row-3" class="col-sm-12 col-lg-12 box">Add and view recipes!</div>
+
+            <div id= "row-4" class="col-sm-12 col-lg-12 box">
+
+              <form id="sign-up">
+                <input name="credentials[email]" type="text" placeholder="Enter email">
+                <input name="credentials[password]" type="password" placeholder="Enter password">
+                <input name="credentials[password_confirmation]" type="password" placeholder="Enter password again">
+                <button type="button" class="btn btn-outline-dark">Sign-Up</button>
+              </form>
+
+              <!-- <form id="sign-in">
+                <input name="credentials[email]" type="text" placeholder="Enter email">
+                <input name="credentials[password]" type="password" placeholder="Enter password">
+                <button>Sign In</button>
+              </form>
+
+              <form id="change-password">
+                <input name="passwords[old]" type="password" placeholder="Enter old password">
+                <input name="passwords[new]" type="password" placeholder="Enter new password">
+                <button>Change Password</button>
+              </form>
+
+              <button id='sign-out'>Sign Out</button> -->
+
+            </div>
+        </div>
+      </div>
     </body>
 </html>
