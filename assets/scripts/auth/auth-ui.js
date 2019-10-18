@@ -14,7 +14,9 @@ const failureMessage = function (newText) {
   $('#message').removeClass('success')
 }
 
-const onSignUpSuccess = function () {
+const onSignUpSuccess = function (responseData) {
+  store.user = responseData.user
+  console.log(responseData)
   successMessage('Signed up successfully!')
   $('#sign-up').trigger('reset')
 }
@@ -25,8 +27,13 @@ const onSignupFailure = function () {
 }
 
 const onSignInSuccess = function (responseData) {
-  successMessage('Signed in successfully!')
   store.user = responseData.user
+  successMessage('Signed in successfully!')
+  $('#sign-in').trigger('reset')
+  $('#sign-up').hide()
+  $('#sign-in').hide()
+  $('#sign-out').show()
+  $('#change-password').show()
 }
 
 const onSignInFailure = function () {

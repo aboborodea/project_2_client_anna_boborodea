@@ -1,7 +1,7 @@
 'use strict'
 
 const config = require('../config')
-const store = ('../store')
+const store = require('../store')
 
 const signUp = function (formData) {
   return $.ajax({
@@ -20,6 +20,7 @@ const signIn = function (formData) {
 }
 
 const changePassword = function (formData) {
+  console.log(store)
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/change-password',
