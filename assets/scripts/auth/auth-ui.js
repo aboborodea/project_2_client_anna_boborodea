@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store')
+const viewRecipesTemplate = require('../templates/recipe-listing.handlebars')
 
 const successMessage = function (newText) {
   $('#message').text(newText)
@@ -68,6 +69,7 @@ const onSignOutSuccess = function () {
   $('#sign-up').show()
   $('#sign-in').show()
   $('#change-password').hide()
+  $('#sign-out').hide()
   $('#change-password').trigger('reset')
 }
 
@@ -76,19 +78,21 @@ const onSignOutFailure = function () {
 }
 
 const onCreateRecipeSuccess = function (data) {
-  $('.user-message').css('color', 'black')
-  $('.user-message').text('Successfully created a new recipe!')
+  $('#row-2').css('color', 'black')
+  $('#row-2').text('Successfully created a new recipe!')
+  $('#create-recipe-form').trigger('reset')
 }
 
 const onCreateRecipeFailure = function (data) {
   $('.user-message').css('color', 'black')
   $('.user-message').text('Create recipe failure!')
+  $('#create-recipe-form').trigger('reset')
 }
 
 const onViewRecipesSuccess = function (data) {
   console.log(data)
-  const
-  $('.user-message').text('Successfully viewed all recipes!')
+  const viewRecipesHtml = viewRecipesTemplate({ recipes: data.recipes })
+  $('#row-2').append(viewRecipesHtml)
 }
 
 const onViewRecipesFailure = function () {

@@ -56,6 +56,11 @@ const onViewRecipes = function (event) {
     .catch(authUi.onViewRecipesFailure)
 }
 
+const onDeleteRecipe = function (event){
+  event.preventDefault()
+  authApi.deleteRecipe()
+}
+
 module.exports = {
   onSignUp,
   onSignIn,

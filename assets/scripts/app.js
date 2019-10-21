@@ -14,6 +14,7 @@ $(() => {
   $('#sign-out').on('click', authEvents.onSignOut)
   $('#create-recipe-form').on('submit', authEvents.onCreateRecipe)
   $('#view-recipes').on('click', authEvents.onViewRecipes)
+  $('#delete-recipe-form').on('submit', authEvents.onDeleteRecipe)
   $('#sign-out').hide()
   $('#change-password').hide()
   $('#create-recipe').hide()

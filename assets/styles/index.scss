@@ -1,6 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
-
-$font-color: $light;
+$font-color: gray;
 
 body {
   background-color: none;
@@ -21,9 +20,9 @@ body {
 }
 
 footer {
-  padding: 25px;
   color: white;
   font-size: 15px;
+  padding: 25px;
 }
 
 h1 {
@@ -39,6 +38,7 @@ h4 {
 }
 
 .row {
+  color: white;
   height: auto;
 }
 
