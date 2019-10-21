@@ -90,13 +90,20 @@ const onCreateRecipeFailure = function (data) {
 }
 
 const onViewRecipesSuccess = function (data) {
-  console.log(data)
   const viewRecipesHtml = viewRecipesTemplate({ recipes: data.recipes })
   $('#row-2').append(viewRecipesHtml)
 }
 
 const onViewRecipesFailure = function () {
   $('.user-message').text('View all recipes failure!')
+}
+
+const onDeleteRecipeSuccess = function () {
+  $('.user-message').text('Recipe deleted successfully!')
+}
+
+const onDeleteRecipeFailure = function () {
+  $('.user-message').text('Recipe delete failure!')
 }
 
 module.exports = {
@@ -111,5 +118,7 @@ module.exports = {
   onCreateRecipeSuccess,
   onCreateRecipeFailure,
   onViewRecipesSuccess,
-  onViewRecipesFailure
+  onViewRecipesFailure,
+  onDeleteRecipeSuccess,
+  onDeleteRecipeFailure
 }

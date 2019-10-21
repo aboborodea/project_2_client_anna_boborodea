@@ -56,9 +56,12 @@ const onViewRecipes = function (event) {
     .catch(authUi.onViewRecipesFailure)
 }
 
-const onDeleteRecipe = function (event){
+const onDeleteRecipe = function (event) {
   event.preventDefault()
-  authApi.deleteRecipe()
+  const recipeId = $('#delete-recipe-id').val()
+  authApi.deleteRecipe(recipeId)
+    .then(authUi.onDeleteRecipeSuccess)
+    .catch(authUi.onDeleteRecipeFailure)
 }
 
 module.exports = {
@@ -67,5 +70,6 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onCreateRecipe,
-  onViewRecipes
+  onViewRecipes,
+  onDeleteRecipe
 }
