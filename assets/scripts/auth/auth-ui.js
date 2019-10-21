@@ -34,6 +34,13 @@ const onSignInSuccess = function (responseData) {
   $('#sign-in').hide()
   $('#sign-out').show()
   $('#change-password').show()
+  $('#create-recipe').show()
+  $('#update-recipe').show()
+  $('#delete-recipe').show()
+  $('#view-recipes').show()
+  $('#view-recipe').show()
+  $('body').css('background-image', 'none')
+  $('h1').css('color', 'black')
 }
 
 const onSignInFailure = function () {
@@ -63,6 +70,17 @@ const onSignOutFailure = function () {
   failureMessage('sign out failed')
 }
 
+const onCreateRecipeSuccess = function (data) {
+  console.log(data)
+  $('.user-message').css('color', 'black')
+  $('.user-message').text('Successfully created a new recipe!')
+}
+
+const onCreateRecipeFailure = function (data) {
+  $('.user-message').css('color', 'black')
+  $('.user-message').text('Successfully created a new recipe!')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignupFailure,
@@ -71,5 +89,7 @@ module.exports = {
   onChangePasswordSuccess,
   onChangePasswordFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  onCreateRecipeSuccess,
+  onCreateRecipeFailure
 }

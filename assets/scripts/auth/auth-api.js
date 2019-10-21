@@ -41,9 +41,29 @@ const signOut = function () {
   })
 }
 
+const createRecipe = function (title, ingredients, instructions, notes) {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/recipes',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      recipe: {
+        title: title,
+        ingredients: ingredients,
+        instructions: instructions,
+        notes: notes,
+        user_id: store.user.id
+      }
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  createRecipe
 }

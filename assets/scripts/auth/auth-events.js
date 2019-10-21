@@ -38,9 +38,21 @@ const onSignOut = function (event) {
     .catch(authUi.onSignOutFailure)
 }
 
+const onCreateRecipe = function (event) {
+  event.preventDefault()
+  const title = $('#recipe-title').val()
+  const ingredients = $('#recipe-ingredients').val()
+  const instructions = $('#recipe-instructions').val()
+  const notes = $('#recipe-notes').val()
+  authApi.createRecipe(title, ingredients, instructions, notes)
+    .then(authUi.onCreateRecipeSuccess)
+    .catch(authUi.onCreateRecipeFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  onCreateRecipe
 }
