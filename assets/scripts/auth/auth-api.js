@@ -60,10 +60,21 @@ const createRecipe = function (title, ingredients, instructions, notes) {
   })
 }
 
+const viewRecipes = function () {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/recipes',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
-  createRecipe
+  createRecipe,
+  viewRecipes
 }

@@ -1,0 +1,23 @@
+{{#each recipes as |recipe|}}
+  {{log recipe}}
+  <section data-id="{{recipe.id}}">
+    <h6>Title:</h6>
+    <h3>
+      {{limit recipe.title}}
+    </h3>
+    <h6>Ingredients:</h6>
+    <h3>
+      {{limit recipe.ingredients}}
+    </h3>
+    <h6>Instructions:</h6>
+    <h3>
+      {{limit recipe.instructions}}
+    </h3>
+    <h6>Notes:</h6>
+    <h3>
+      {{limit recipe.notes}}
+    </h3>
+    <!-- {{> partial}} -->
+  </section>
+
+{{/each}}

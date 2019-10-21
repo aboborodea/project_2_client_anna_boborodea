@@ -49,10 +49,18 @@ const onCreateRecipe = function (event) {
     .catch(authUi.onCreateRecipeFailure)
 }
 
+const onViewRecipes = function (event) {
+  event.preventDefault()
+  authApi.viewRecipes()
+    .then(authUi.onViewRecipesSuccess)
+    .catch(authUi.onViewRecipesFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
-  onCreateRecipe
+  onCreateRecipe,
+  onViewRecipes
 }

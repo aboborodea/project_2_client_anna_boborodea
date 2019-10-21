@@ -40,7 +40,12 @@ const onSignInSuccess = function (responseData) {
   $('#view-recipes').show()
   $('#view-recipe').show()
   $('body').css('background-image', 'none')
-  $('h1').css('color', 'black')
+  $('body').css('background-color', '#94A5AE')
+  // $('h1').css('color', 'black')
+  $('#create-recipe-form').show()
+  $('#update-recipe-form').show()
+  $('#delete-recipe-form').show()
+  // $('#footer').css('color', 'black')
 }
 
 const onSignInFailure = function () {
@@ -71,14 +76,23 @@ const onSignOutFailure = function () {
 }
 
 const onCreateRecipeSuccess = function (data) {
-  console.log(data)
   $('.user-message').css('color', 'black')
   $('.user-message').text('Successfully created a new recipe!')
 }
 
 const onCreateRecipeFailure = function (data) {
   $('.user-message').css('color', 'black')
-  $('.user-message').text('Successfully created a new recipe!')
+  $('.user-message').text('Create recipe failure!')
+}
+
+const onViewRecipesSuccess = function (data) {
+  console.log(data)
+  const
+  $('.user-message').text('Successfully viewed all recipes!')
+}
+
+const onViewRecipesFailure = function () {
+  $('.user-message').text('View all recipes failure!')
 }
 
 module.exports = {
@@ -91,5 +105,7 @@ module.exports = {
   onSignOutSuccess,
   onSignOutFailure,
   onCreateRecipeSuccess,
-  onCreateRecipeFailure
+  onCreateRecipeFailure,
+  onViewRecipesSuccess,
+  onViewRecipesFailure
 }
