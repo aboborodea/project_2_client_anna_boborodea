@@ -79,7 +79,6 @@ const onUpdateRecipe = function (event) {
   const ingredients = $('#update-ingredients').val()
   const instructions = $('#update-instructions').val()
   const notes = $('#update-notes').val()
-  console.log('onUpdateRecipe')
   authApi.updateRecipe(id, title, ingredients, instructions, notes)
     .then(authUi.onUpdateRecipeSuccess)
     .catch(authUi.onUpdateRecipeFailure)

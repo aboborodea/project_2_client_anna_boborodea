@@ -18,7 +18,6 @@ const failureMessage = function (newText) {
 
 const onSignUpSuccess = function (responseData) {
   store.user = responseData.user
-  console.log(responseData)
   successMessage('Signed up successfully!')
   $('#sign-up').trigger('reset')
 }
@@ -44,11 +43,9 @@ const onSignInSuccess = function (responseData) {
   $('#view-recipe').show()
   $('body').css('background-image', 'none')
   $('body').css('background-color', '#94A5AE')
-  // $('h1').css('color', 'black')
   $('#create-recipe-form').show()
   $('#update-recipe-form').show()
   $('#delete-recipe-form').show()
-  // $('#footer').css('color', 'black')
   $('#view-recipe-form').show()
 }
 
