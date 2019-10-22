@@ -31,6 +31,7 @@ const onSignupFailure = function () {
 const onSignInSuccess = function (responseData) {
   store.user = responseData.user
   successMessage('Signed in successfully!')
+  setTimeout(function () { successMessage('') }, 5000)
   $('#sign-in').trigger('reset')
   $('#sign-up').hide()
   $('#sign-in').hide()
@@ -105,18 +106,22 @@ const onViewRecipeSuccess = function (data) {
   $('#row-2').html('')
   const viewRecipeHtml = viewRecipeTemplate({ recipe: data.recipe })
   $('#row-2').append(viewRecipeHtml)
+  $('#view-recipe-form').trigger('reset')
 }
 
 const onViewRecipeFailure = function () {
   $('#message').text('View recipe failure!')
+  $('#view-recipe-form').trigger('reset')
 }
 
 const onDeleteRecipeSuccess = function () {
   $('#message').text('Recipe deleted successfully!')
+  $('#delete-recipe-form').trigger('reset')
 }
 
 const onDeleteRecipeFailure = function () {
   $('#message').text('Recipe delete failure!')
+  $('#delete-recipe-form').trigger('reset')
 }
 
 const onUpdateRecipeSuccess = function (data) {
