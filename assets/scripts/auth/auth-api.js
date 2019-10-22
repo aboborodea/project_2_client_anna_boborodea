@@ -70,12 +70,41 @@ const viewRecipes = function () {
   })
 }
 
+const viewRecipe = function (recipeId) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/recipes/' + recipeId,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const deleteRecipe = function (recipeId) {
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/recipes/' + recipeId,
     headers: {
       Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateRecipe = function (id, title, ingredients, instructions, notes) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/recipes/' + id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      recipe: {
+        id: id,
+        title: title,
+        ingredients: ingredients,
+        instructions: instructions,
+        notes: notes
+      }
     }
   })
 }
@@ -87,5 +116,7 @@ module.exports = {
   signOut,
   createRecipe,
   viewRecipes,
-  deleteRecipe
+  deleteRecipe,
+  updateRecipe,
+  viewRecipe
 }

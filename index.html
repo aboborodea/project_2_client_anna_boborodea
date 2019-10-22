@@ -39,7 +39,7 @@
           <button id='update-recipe'>Update a Recipe</button>
           <button id='delete-recipe'>Delete a Recipe</button> -->
           <button id='view-recipes'>View all Recipes</button>
-          <button id='view-recipe'>View one Recipe</button>
+          <!-- <button id='view-recipe'>View one Recipe</button> -->
         </div>
         <br>
 
@@ -58,10 +58,11 @@
               <br>
               <form id="update-recipe-form">
                 <h4>Update a Recipe!</h4>
-                  <input name="recipe-title" type="text" placeholder="Enter Recipe Title">
-                  <input name="ingredients" type="text" placeholder="List Ingredients">
-                  <input name="instructions" type="text" placeholder="Enter instructions here">
-                  <input name="notes" type="text" placeholder="Enter Notes here">
+                <input id="update-id" type="number" placeholder="Enter Recipe ID#">
+                  <input id="update-title" type="text" placeholder="Enter Recipe Title">
+                  <input id="update-ingredients" type="text" placeholder="List Ingredients">
+                  <input id="update-instructions" type="text" placeholder="Enter instructions here">
+                  <input id="update-notes" type="text" placeholder="Enter Notes here">
                   <button>Update a Recipe</button>
               </form>
               <br>
@@ -70,11 +71,16 @@
                   <input id="delete-recipe-id" name="recipe-id" type="number" placeholder="Enter Recipe ID#">
                   <button>Delete a Recipe</button>
               </form>
-
+              <br>
+              <form id="view-recipe-form">
+                <h4>View a Recipe!</h4>
+                  <input id="view-recipe-id" name="recipe-id" type="number" placeholder="Enter Recipe ID#">
+                  <button>View Recipe</button>
+              </form>
             </div>
 
             <div id= "row-2" class="col-sm-12 col-lg-12 box">
-              <h4 id="display-resources" class= 'resources-display'></h4>
+              <!-- <h4 id="display-resources" class= 'resources-display'></h4> -->
             </div>
 
             <!-- <div id= "row-3" class="col-sm-12 col-lg-12 box"></div> -->

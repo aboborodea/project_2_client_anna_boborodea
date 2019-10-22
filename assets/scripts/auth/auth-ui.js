@@ -2,6 +2,7 @@
 
 const store = require('../store')
 const viewRecipesTemplate = require('../templates/recipe-listing.handlebars')
+const viewRecipeTemplate = require('../templates/one-recipe.handlebars')
 
 const successMessage = function (newText) {
   $('#message').text(newText)
@@ -47,6 +48,7 @@ const onSignInSuccess = function (responseData) {
   $('#update-recipe-form').show()
   $('#delete-recipe-form').show()
   // $('#footer').css('color', 'black')
+  $('#view-recipe-form').show()
 }
 
 const onSignInFailure = function () {
@@ -78,32 +80,56 @@ const onSignOutFailure = function () {
 }
 
 const onCreateRecipeSuccess = function (data) {
-  $('#row-2').css('color', 'black')
-  $('#row-2').text('Successfully created a new recipe!')
+  $('#message').css('color', 'green')
+  $('#message').text('Successfully created a new recipe!')
   $('#create-recipe-form').trigger('reset')
 }
 
 const onCreateRecipeFailure = function (data) {
-  $('.user-message').css('color', 'black')
-  $('.user-message').text('Create recipe failure!')
+  $('#message').css('color', 'red')
+  $('#message').text('Create recipe failure!')
   $('#create-recipe-form').trigger('reset')
 }
 
 const onViewRecipesSuccess = function (data) {
+  $('#row-2').html('')
   const viewRecipesHtml = viewRecipesTemplate({ recipes: data.recipes })
   $('#row-2').append(viewRecipesHtml)
 }
 
 const onViewRecipesFailure = function () {
-  $('.user-message').text('View all recipes failure!')
+  $('#message').text('View all recipes failure!')
+}
+
+const onViewRecipeSuccess = function (data) {
+  $('#row-2').html('')
+  const viewRecipeHtml = viewRecipeTemplate({ recipe: data.recipe })
+  $('#row-2').append(viewRecipeHtml)
+}
+
+const onViewRecipeFailure = function () {
+  $('#message').text('View recipe failure!')
 }
 
 const onDeleteRecipeSuccess = function () {
-  $('.user-message').text('Recipe deleted successfully!')
+  $('#message').text('Recipe deleted successfully!')
 }
 
 const onDeleteRecipeFailure = function () {
-  $('.user-message').text('Recipe delete failure!')
+  $('#message').text('Recipe delete failure!')
+}
+
+const onUpdateRecipeSuccess = function (data) {
+  $('#message').css('color', 'green')
+  $('#message').text('Successfully updated a new recipe!')
+  $('#message').css('color', 'white')
+  $('#update-recipe-form').trigger('reset')
+}
+
+const onUpdateRecipeFailure = function (data) {
+  $('.message').css('color', 'red')
+  $('.message').text('Update recipe failure!')
+  $('#update-recipe-form').trigger('reset')
 }
 
 module.exports = {
@@ -120,5 +146,9 @@ module.exports = {
   onViewRecipesSuccess,
   onViewRecipesFailure,
   onDeleteRecipeSuccess,
-  onDeleteRecipeFailure
+  onDeleteRecipeFailure,
+  onUpdateRecipeSuccess,
+  onUpdateRecipeFailure,
+  onViewRecipeSuccess,
+  onViewRecipeFailure
 }
