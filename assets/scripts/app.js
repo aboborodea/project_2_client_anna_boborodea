@@ -23,6 +23,7 @@ $(() => {
   $('#update-recipe').hide()
   $('#delete-recipe').hide()
   $('#view-recipes').hide()
+  $('#view-recipe').hide()
   $('#view-recipe-form').hide()
   $('#create-recipe-form').hide()
   $('#update-recipe-form').hide()
