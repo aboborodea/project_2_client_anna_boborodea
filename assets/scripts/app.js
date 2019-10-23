@@ -28,4 +28,5 @@ $(() => {
   $('#create-recipe-form').hide()
   $('#update-recipe-form').hide()
   $('#delete-recipe-form').hide()
+  $('#footer').hide()
 })
