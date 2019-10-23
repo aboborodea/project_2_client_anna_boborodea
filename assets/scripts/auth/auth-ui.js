@@ -24,6 +24,7 @@ const onSignUpSuccess = function (responseData) {
 
 const onSignupFailure = function () {
   failureMessage('Sign up failed')
+  setTimeout(function () { failureMessage('') }, 4000)
   $('#sign-up').trigger('reset')
 }
 
@@ -51,6 +52,7 @@ const onSignInSuccess = function (responseData) {
 
 const onSignInFailure = function () {
   failureMessage('sign in failed')
+  setTimeout(function () { failureMessage('') }, 4000)
   $('#sign-in').trigger('reset')
 }
 
@@ -61,31 +63,43 @@ const onChangePasswordSuccess = function () {
 
 const onChangePasswordFailure = function () {
   failureMessage('change password failed')
+  setTimeout(function () { failureMessage('') }, 4000)
   $('#change-password').trigger('reset')
 }
 
 const onSignOutSuccess = function () {
   successMessage('signed out successfully!')
+  setTimeout(function () { successMessage('') }, 4000)
+  $('body').css('background-image', 'url(public/rainbow.jpg)')
   $('#sign-up').show()
   $('#sign-in').show()
   $('#change-password').hide()
   $('#sign-out').hide()
   $('#change-password').trigger('reset')
+  $('#create-recipe-form').hide()
+  $('#update-recipe-form').hide()
+  $('#delete-recipe-form').hide()
+  $('#view-recipes').hide()
+  $('#view-recipe-form').hide()
+  $('#row-2').html('')
 }
 
 const onSignOutFailure = function () {
   failureMessage('sign out failed')
+  setTimeout(function () { failureMessage('') }, 4000)
 }
 
 const onCreateRecipeSuccess = function (data) {
-  $('#message').css('color', 'green')
+  $('#message').css('color', 'white')
   $('#message').text('Successfully created a new recipe!')
+  setTimeout(function () { successMessage('') }, 4000)
   $('#create-recipe-form').trigger('reset')
 }
 
 const onCreateRecipeFailure = function (data) {
   $('#message').css('color', 'red')
   $('#message').text('Create recipe failure!')
+  setTimeout(function () { failureMessage('') }, 4000)
   $('#create-recipe-form').trigger('reset')
 }
 
@@ -97,6 +111,7 @@ const onViewRecipesSuccess = function (data) {
 
 const onViewRecipesFailure = function () {
   $('#message').text('View all recipes failure!')
+  setTimeout(function () { failureMessage('') }, 4000)
 }
 
 const onViewRecipeSuccess = function (data) {
@@ -108,22 +123,26 @@ const onViewRecipeSuccess = function (data) {
 
 const onViewRecipeFailure = function () {
   $('#message').text('View recipe failure!')
+  setTimeout(function () { failureMessage('') }, 4000)
   $('#view-recipe-form').trigger('reset')
 }
 
 const onDeleteRecipeSuccess = function () {
   $('#message').text('Recipe deleted successfully!')
+  setTimeout(function () { successMessage('') }, 4000)
   $('#delete-recipe-form').trigger('reset')
 }
 
 const onDeleteRecipeFailure = function () {
   $('#message').text('Recipe delete failure!')
+  setTimeout(function () { failureMessage('') }, 4000)
   $('#delete-recipe-form').trigger('reset')
 }
 
 const onUpdateRecipeSuccess = function (data) {
   $('#message').css('color', 'green')
   $('#message').text('Successfully updated a new recipe!')
+  setTimeout(function () { successMessage('') }, 4000)
   $('#message').css('color', 'white')
   $('#update-recipe-form').trigger('reset')
 }
@@ -131,6 +150,7 @@ const onUpdateRecipeSuccess = function (data) {
 const onUpdateRecipeFailure = function (data) {
   $('.message').css('color', 'red')
   $('.message').text('Update recipe failure!')
+  setTimeout(function () { failureMessage('') }, 4000)
   $('#update-recipe-form').trigger('reset')
 }
 

@@ -1,9 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
-$font-color: gray;
+$font-color: #D3D3D3;
+$text-color: #FFF;
 
 body {
   background-color: none;
-  background-image: url('public/CBC.jpeg');
+  background-image: url('public/rainbow.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -11,37 +12,37 @@ body {
 
 .box {
   align-items: center;
-  // background-color: $secondary;
-  // border: 1px solid $white;
   color: $font-color;
   display: flex;
-  height: 300px;
+  height: 500px;
   justify-content: center;
 }
 
-footer {
-  color: white;
-  font-size: 15px;
-  padding: 25px;
-}
+// footer {
+//   // background-image: url('public/vegetables.png');
+//   background-size: cover;
+//   color: white;
+//   font-size: 15px;
+//   // padding: 25px;
+// }
 
 h1 {
-  color: white;
+  color: $text-color;
   font-size: 100px;
 }
 
 h4 {
-  color: white;
+  color: $text-color;
   font-size: 25px;
   padding: 25px;
   width: 350px;
 }
 
 .row {
-  color: white;
+  color: $text-color;
   height: auto;
 }
 
 .user-message {
-  color: white;
+  color: $text-color;
 }
