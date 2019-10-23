@@ -48,6 +48,8 @@ const onSignInSuccess = function (responseData) {
   $('#update-recipe-form').show()
   $('#delete-recipe-form').show()
   $('#view-recipe-form').show()
+  $('#footer').show()
+  $('.box').css('height', '165px')
 }
 
 const onSignInFailure = function () {
@@ -82,6 +84,8 @@ const onSignOutSuccess = function () {
   $('#view-recipes').hide()
   $('#view-recipe-form').hide()
   $('#row-2').html('')
+  $('#footer').hide()
+  $('.box').css('height', '500px')
 }
 
 const onSignOutFailure = function () {
