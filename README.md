@@ -4,6 +4,8 @@
 <h4>Important Links</h4>
 
 https://aboborodea.github.io/project_2_client_anna_boborodea/
+https://glacial-lake-14243.herokuapp.com/
+https://github.com/aboborodea/project_2_api
 
 <h4>Technologies Used</h4>
 <ul>
