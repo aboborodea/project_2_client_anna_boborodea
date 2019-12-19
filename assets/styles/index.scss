@@ -1,10 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 $font-color: #D3D3D3;
-$text-color: #FFF;
 
 body {
   background-color: none;
-  background-image: url('public/rainbow.jpg');
+  // background-image: url('public/rainbow.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -26,17 +25,17 @@ body {
 //   // padding: 25px;
 // }
 
-h1 {
-  color: $text-color;
-  font-size: 100px;
-}
-
 h4 {
   color: $text-color;
   font-size: 25px;
   padding: 25px;
   width: 350px;
 }
+
+// .navbar {
+//   height: 20px;
+//   width: 100vh;
+// }
 
 .row {
   color: $text-color;
@@ -45,9 +44,11 @@ h4 {
 
 .user-message {
   color: $text-color;
+  display: flex;
+  justify-content: flex-end;
 }
 
-#footer {
-  background-image: url('public/vegetables.png');
-  height: 350px;
-}
+// #footer {
+//   background-image: url('public/vegetables.png');
+//   height: 350px;
+// }

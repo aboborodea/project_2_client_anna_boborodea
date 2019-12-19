@@ -72,7 +72,7 @@ const onChangePasswordFailure = function () {
 const onSignOutSuccess = function () {
   successMessage('signed out successfully!')
   setTimeout(function () { successMessage('') }, 4000)
-  $('body').css('background-image', 'url(public/rainbow.jpg)')
+  // $('body').css('background-image', 'url(public/rainbow.jpg)')
   $('#sign-up').show()
   $('#sign-in').show()
   $('#change-password').hide()

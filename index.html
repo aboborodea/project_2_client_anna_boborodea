@@ -11,35 +11,114 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 
+     <!-- Bootstrap CSS -->
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     </head>
     <body>
-      <div id= "row-1" class="col-sm-12 col-lg-12 box">
-        <h1>cookbook club</h1>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#sign-up-modal" data-toggle="modal" data-target= "#sign-up-modal">Sign-Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#sign-in-modal" data-toggle="modal" data-target= "#sign-in-modal">Sign-In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#change-password-modal" data-toggle="modal" data-target= "#change-password-modal">Change Password</a>
+        </li>
+        <li class="nav-item">
+          <a id='sign-out' class="nav-link" href="#sign-out-modal" data-toggle="modal" data-target= "#sign-out-modal">Sign-Out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
+<!-- Sign-up Modal-->
+  <div class="modal" id="sign-up-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Sign-Up</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="sign-up">
+              <input name="credentials[email]" type="text" placeholder="Enter email">
+              <input name="credentials[password]" type="password" placeholder="Enter password">
+              <input name="credentials[password_confirmation]" type="password" placeholder="Enter password again">
+              <button>Sign-Up</button>
+          </form>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
 
-<!-- Authentication-->
-      <form id="sign-up">
-          <input name="credentials[email]" type="text" placeholder="Enter email">
-          <input name="credentials[password]" type="password" placeholder="Enter password">
-          <input name="credentials[password_confirmation]" type="password" placeholder="Enter password again">
-          <button>Sign-Up</button>
-      </form>
-      <form id="sign-in">
-        <input name="credentials[email]" type="text" placeholder="Enter email">
-        <input name="credentials[password]" type="password" placeholder="Enter password">
-        <button>Sign In</button>
-      </form>
-      <form id="change-password">
-        <input name="passwords[old]" type="password" placeholder="Enter old password">
-        <input name="passwords[new]" type="password" placeholder="Enter new password">
-        <button>Change Password</button>
-      </form>
-      <button id='sign-out'>Sign Out</button>
-      <h4 id="message" class= 'user-message'></h4>
+  <!-- Sign-in Modal-->
+    <div class="modal" id="sign-in-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Sign-In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="sign-in">
+              <input name="credentials[email]" type="text" placeholder="Enter email">
+              <input name="credentials[password]" type="password" placeholder="Enter password">
+              <button>Sign In</button>
+            </form>
+          </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div> -->
+        </div>
+      </div>
     </div>
 
+    <!-- Change Password Modal-->
+      <div class="modal" id="change-password-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Change Password</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="change-password">
+                <input name="passwords[old]" type="password" placeholder="Enter old password">
+                <input name="passwords[new]" type="password" placeholder="Enter new password">
+                <button>Change Password</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- Authentication-->
+      <h4 id="message" class= 'user-message'></h4>
+
+
 <!-- CRUD (recipes)-->
-    <br>
         <button id='view-recipes'>View all Recipes</button>
         <br>
         <form id="create-recipe-form">
@@ -70,13 +149,12 @@
           <button>View Recipe</button>
       </form>
 
-
 <!--Resource Display-->
-    <div id= "row-2" class="col-sm-12 col-lg-12 box">
-      <h4 id="display-resources" class= 'resources-display'></h4>
+    <div>
+      <h4 class="resource-display"></h4>
     </div>
 
 <!-- Footer-->
-      <footer id="footer">Created by: Anna Boborodea</footer>
+      <!-- <footer>Created by: Anna Boborodea</footer> -->
     </body>
 </html>
