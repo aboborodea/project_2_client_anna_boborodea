@@ -19,6 +19,7 @@ $(() => {
   $('#update-recipe-form').on('submit', authEvents.onUpdateRecipe)
   $('#sign-out').hide()
   $('#change-password').hide()
+  $('#change-password-link').hide()
   $('#create-recipe').hide()
   $('#update-recipe').hide()
   $('#delete-recipe').hide()

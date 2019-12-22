@@ -15,28 +15,27 @@
        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     </head>
-    <body>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <body style="height: 100vh">
+      <nav class="navbar navbar-expand-lg" style="background: tan">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span>
+          <a class="nav-link" style="font-size: 20px; color: black" href="#">Cookbook Club<span class="sr-only">(current)</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#sign-up-modal" data-toggle="modal" data-target= "#sign-up-modal">Sign-Up</a>
+          <a id="sign-up-link" style="font-size: 20px; color: black" class="nav-link" href="#sign-up-modal" data-toggle="modal" data-target= "#sign-up-modal">Sign-Up</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#sign-in-modal" data-toggle="modal" data-target= "#sign-in-modal">Sign-In</a>
+          <a id="sign-in-link" style="font-size: 20px; color: black" class="nav-link" href="#sign-in-modal" data-toggle="modal" data-target= "#sign-in-modal">Sign-In</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#change-password-modal" data-toggle="modal" data-target= "#change-password-modal">Change Password</a>
+          <a id="change-password-link" style="font-size: 20px; color: black" class="nav-link" href="#change-password-modal" data-toggle="modal" data-target= "#change-password-modal">Change Password</a>
         </li>
         <li class="nav-item">
-          <a id='sign-out' class="nav-link" href="#sign-out-modal" data-toggle="modal" data-target= "#sign-out-modal">Sign-Out</a>
+          <a id='sign-out' style="font-size: 20px; color: black" class="nav-link" href="#sign-out-modal" data-toggle="modal" data-target= "#sign-out-modal">Sign-Out</a>
         </li>
       </ul>
     </div>
@@ -60,10 +59,6 @@
               <button>Sign-Up</button>
           </form>
         </div>
-        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div> -->
       </div>
     </div>
   </div>
@@ -85,10 +80,6 @@
               <button>Sign In</button>
             </form>
           </div>
-          <!-- <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div> -->
         </div>
       </div>
     </div>
@@ -113,10 +104,6 @@
           </div>
         </div>
       </div>
-
-<!-- Authentication-->
-      <h4 id="message" class= 'user-message'></h4>
-
 
 <!-- CRUD (recipes)-->
         <button id='view-recipes'>View all Recipes</button>
@@ -155,6 +142,6 @@
     </div>
 
 <!-- Footer-->
-      <!-- <footer>Created by: Anna Boborodea</footer> -->
+      <footer id="footer"><h4 id="message" class= 'user-message'></h4></footer>
     </body>
 </html>
