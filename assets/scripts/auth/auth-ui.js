@@ -87,9 +87,13 @@ const onSignOutSuccess = function () {
   $('#delete-recipe-form').hide()
   $('#view-recipes').hide()
   $('#view-recipe-form').hide()
-  // $('#row-2').html('')
   $('#footer').hide()
-  $('.box').css('height', '500px')
+  $('#resource-display').html('')
+  $('#view-recipe').hide()
+  $('#show-create-form').hide()
+  $('#show-update-form').hide()
+  $('#show-delete-form').hide()
+  $('#show-view-form').hide()
 }
 
 const onSignOutFailure = function () {
@@ -102,6 +106,12 @@ const onCreateRecipeSuccess = function (data) {
   $('#message').text('Successfully created a new recipe!')
   setTimeout(function () { successMessage('') }, 4000)
   $('#create-recipe-form').trigger('reset')
+  // console.log('hi')
+  // console.log('data', data)
+  // console.log('data.recipe', data.recipe)
+  $('#resource-display').html('')
+  const viewRecipeHtml = viewRecipeTemplate({ recipe: data.recipe })
+  $('#resource-display').append(viewRecipeHtml)
 }
 
 const onCreateRecipeFailure = function (data) {
@@ -154,6 +164,9 @@ const onUpdateRecipeSuccess = function (data) {
   setTimeout(function () { successMessage('') }, 4000)
   $('#message').css('color', 'white')
   $('#update-recipe-form').trigger('reset')
+  $('#resource-display').html('')
+  const viewRecipeHtml = viewRecipeTemplate({ recipe: data.recipe })
+  $('#resource-display').append(viewRecipeHtml)
 }
 
 const onUpdateRecipeFailure = function (data) {

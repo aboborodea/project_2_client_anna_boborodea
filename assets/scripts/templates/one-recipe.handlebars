@@ -1,22 +1,20 @@
-  <div data-id="{{recipe.id}}">
-    <h6>ID:</h6>
-    <h3>
-      {{recipe.id}}
-    </h3>
-    <h6>Title:</h6>
-    <h3>
-      {{recipe.title}}
-    </h3>
-    <h6>Ingredients:</h6>
-    <h3>
-      {{recipe.ingredients}}
-    </h3>
-    <h6>Instructions:</h6>
-    <h3>
-      {{recipe.instructions}}
-    </h3>
-    <h6>Notes:</h6>
-    <h3>
-      {{recipe.notes}}
-    </h3>
-  </div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Ingredients</th>
+      <th scope="col">Instructions</th>
+      <th scope="col">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{recipe.id}}</th>
+      <td>{{recipe.title}}</td>
+      <td>{{recipe.ingredients}}</td>
+      <td>{{recipe.instructions}}</td>
+      <td>{{recipe.notes}}</td>
+    </tr>
+  </tbody>
+</table>
