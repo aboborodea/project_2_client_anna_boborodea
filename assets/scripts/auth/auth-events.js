@@ -4,19 +4,41 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const authApi = require('./auth-api.js')
 const authUi = require('./auth-ui.js')
 
+const signInAfterSignUp = function (userEmail, userPassword) {
+  console.log('email', userEmail)
+  console.log('password', userPassword)
+  const userInfor = {
+    credentials: {
+      email: userEmail,
+      password: userPassword
+    }
+  }
+  console.log('userInfor', userInfor)
+  authApi.signIn(userInfor)
+    .then(authUi.onSignInSuccess)
+    .catch(authUi.onSignInFailure)
+}
+
 const onSignUp = function (event) {
   event.preventDefault()
-  const form = event.target
+  const form = event.target.parentNode
   const formData = getFormFields(form)
+  console.log('formData', formData)
+  console.log('formData.credentials', formData.credentials)
+  console.log('formData.credentials.email', formData.credentials.email)
+  console.log('formData.credentials.password', formData.credentials.password)
   authApi.signUp(formData)
     .then(authUi.onSignUpSuccess)
     .catch(authUi.onSignupFailure)
+  signInAfterSignUp(formData.credentials.email, formData.credentials.password)
 }
 
 const onSignIn = function (event) {
   event.preventDefault()
-  const form = event.target
+  const form = event.target.parentNode
+  console.log('form', form)
   const formData = getFormFields(form)
+  console.log('formData', formData)
   authApi.signIn(formData)
     .then(authUi.onSignInSuccess)
     .catch(authUi.onSignInFailure)
@@ -24,7 +46,7 @@ const onSignIn = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  const form = event.target
+  const form = event.target.parentNode
   const formData = getFormFields(form)
   authApi.changePassword(formData)
     .then(authUi.onChangePasswordSuccess)
@@ -75,6 +97,11 @@ const onDeleteRecipe = function (event) {
     .then(authUi.onDeleteRecipeSuccess)
     .catch(authUi.onDeleteRecipeFailure)
 }
+
+// const onDelete = function (event) {
+//   event.preventDefault()
+//   console.log('delete')
+// }
 
 const onUpdateRecipe = function (event) {
   event.preventDefault()

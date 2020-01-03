@@ -60,7 +60,7 @@
               <input name="credentials[email]" type="text" placeholder="Enter email">
               <input name="credentials[password]" type="password" placeholder="Enter password">
               <input name="credentials[password_confirmation]" type="password" placeholder="Enter password again">
-              <button>Sign-Up</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="sign-up-button">Sign-Up</button>
           </form>
         </div>
       </div>
@@ -68,7 +68,7 @@
   </div>
 
   <!-- Sign-in Modal-->
-    <div class="modal" id="sign-in-modal" tabindex="-1" role="dialog">
+    <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -81,7 +81,8 @@
             <form id="sign-in">
               <input name="credentials[email]" type="text" placeholder="Enter email">
               <input name="credentials[password]" type="password" placeholder="Enter password">
-              <button>Sign In</button>
+               <!-- type="button" class="btn" data-dismiss="modal" -->
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="sign-in-button">Sign In</button>
             </form>
           </div>
         </div>
@@ -102,7 +103,7 @@
               <form id="change-password">
                 <input name="passwords[old]" type="password" placeholder="Enter old password">
                 <input name="passwords[new]" type="password" placeholder="Enter new password">
-                <button>Change Password</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="change-password-button">Change Password</button>
               </form>
             </div>
           </div>

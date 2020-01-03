@@ -3,6 +3,7 @@
 const store = require('../store')
 const viewRecipesTemplate = require('../templates/recipe-listing.handlebars')
 const viewRecipeTemplate = require('../templates/one-recipe.handlebars')
+const authApi = require('./auth-api.js')
 
 const successMessage = function (newText) {
   $('#message').text(newText)
@@ -82,11 +83,11 @@ const onSignOutSuccess = function () {
   $('#sign-up-link').show()
   $('#sign-in-link').show()
   $('#change-password').trigger('reset')
-  $('#create-recipe-form').hide()
-  $('#update-recipe-form').hide()
-  $('#delete-recipe-form').hide()
+  $('#create-recipe').hide()
+  $('#update-recipe').hide()
+  $('#delete-recipe').hide()
   $('#view-recipes').hide()
-  $('#view-recipe-form').hide()
+  $('#view-recipe').hide()
   $('#footer').hide()
   $('#resource-display').html('')
   $('#view-recipe').hide()
@@ -122,10 +123,11 @@ const onCreateRecipeFailure = function (data) {
 }
 
 const onViewRecipesSuccess = function (data) {
-  console.log('data', data)
+  // console.log('data', data)
   $('#resource-display').html('')
   const viewRecipesHtml = viewRecipesTemplate({ recipes: data.recipes })
   $('#resource-display').append(viewRecipesHtml)
+  $('.delete').on('click', onDelete)
 }
 
 const onViewRecipesFailure = function () {
@@ -138,12 +140,25 @@ const onViewRecipeSuccess = function (data) {
   const viewRecipeHtml = viewRecipeTemplate({ recipe: data.recipe })
   $('#resource-display').append(viewRecipeHtml)
   $('#view-recipe-form').trigger('reset')
+  $('.delete').on('click', onDelete)
 }
 
 const onViewRecipeFailure = function () {
   $('#message').text('View recipe failure!')
   setTimeout(function () { failureMessage('') }, 4000)
   $('#view-recipe-form').trigger('reset')
+}
+
+const onDelete = function (event) {
+  event.preventDefault()
+  // console.log('delete')
+  console.log('event.target', event.target)
+  console.log('event.target.parentNode.parentNode', event.target.parentNode.parentNode)
+  $(event.target.parentNode.parentNode.parentNode).hide(1000)
+  // console.log('event.target.id', event.target.id)
+  authApi.deleteRecipe(event.target.id)
+    .then(onDeleteRecipeSuccess)
+    .catch(onDeleteRecipeFailure)
 }
 
 const onDeleteRecipeSuccess = function () {

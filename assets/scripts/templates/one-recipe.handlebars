@@ -6,6 +6,7 @@
       <th scope="col">Ingredients</th>
       <th scope="col">Instructions</th>
       <th scope="col">Notes</th>
+      <th scope="col">Edit</th>
     </tr>
   </thead>
   <tbody>
@@ -15,6 +16,7 @@
       <td>{{recipe.ingredients}}</td>
       <td>{{recipe.instructions}}</td>
       <td>{{recipe.notes}}</td>
+      <td><button type="button" class="btn btn-dark delete" id={{recipe.id}}>Delete</button></td>
     </tr>
   </tbody>
 </table>
