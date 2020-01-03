@@ -2,15 +2,7 @@
 $font-color: #D3D3D3;
 
 body {
-  color: orange;
-  height: 100vh;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  background-image: url('public/asparagus.jpg');
-  // background-position: center;
-  // background-repeat: no-r
-  // background-size: contain;
+background-color: orange;
 }
 
 .box {
@@ -30,19 +22,26 @@ body {
 // }
 
 h4 {
-  color: $text-color;
   font-size: 25px;
   padding: 25px;
   width: 350px;
 }
 
+.div {
+  display: flex;
+}
+
+.nav-link {
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .row {
-  color: $text-color;
   height: auto;
 }
 
 .user-message {
-  color: $text-color;
   display: flex;
   justify-content: flex-end;
 }
@@ -52,6 +51,15 @@ h4 {
   bottom: 0;
   width: 100%;
   height: 2.5rem;
+}
+
+.resource-display {
+  // border: 1px solid black;
+  font-size: 20px;
+  color: white;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
 }
 
 // #footer {

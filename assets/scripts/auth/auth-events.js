@@ -51,6 +51,10 @@ const onCreateRecipe = function (event) {
 
 const onViewRecipes = function (event) {
   event.preventDefault()
+  $('#create-recipe').hide()
+  $('#update-recipe').hide()
+  $('#delete-recipe').hide()
+  $('#view-recipe').hide()
   authApi.viewRecipes()
     .then(authUi.onViewRecipesSuccess)
     .catch(authUi.onViewRecipesFailure)
@@ -84,6 +88,38 @@ const onUpdateRecipe = function (event) {
     .catch(authUi.onUpdateRecipeFailure)
 }
 
+const onShowCreateForm = function (event) {
+  $('#create-recipe').show()
+  $('#update-recipe').hide()
+  $('#delete-recipe').hide()
+  $('#view-recipe').hide()
+  $('#resource-display').html('')
+}
+
+const onShowUpdateForm = function (event) {
+  $('#update-recipe').show()
+  $('#create-recipe').hide()
+  $('#delete-recipe').hide()
+  $('#view-recipe').hide()
+  $('#resource-display').html('')
+}
+
+const onShowDeleteForm = function (event) {
+  $('#delete-recipe').show()
+  $('#update-recipe').hide()
+  $('#create-recipe').hide()
+  $('#view-recipe').hide()
+  $('#resource-display').html('')
+}
+
+const onShowViewForm = function (event) {
+  $('#view-recipe').show()
+  $('#update-recipe').hide()
+  $('#create-recipe').hide()
+  $('#delete-recipe').hide()
+  $('#resource-display').html('')
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -93,5 +129,9 @@ module.exports = {
   onViewRecipes,
   onDeleteRecipe,
   onUpdateRecipe,
-  onViewRecipe
+  onViewRecipe,
+  onShowCreateForm,
+  onShowUpdateForm,
+  onShowDeleteForm,
+  onShowViewForm
 }

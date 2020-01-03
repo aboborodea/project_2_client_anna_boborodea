@@ -15,27 +15,31 @@
        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     </head>
-    <body style="height: 100vh">
-      <nav class="navbar navbar-expand-lg" style="background: tan">
+    <body style="height: 100vh; background-image: url('public/asparagus.jpg'); background-size: cover">
+      <nav class="navbar navbar-expand-lg" style="background: transparent">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" style="font-size: 20px; color: black" href="#">Cookbook Club<span class="sr-only">(current)</span>
+          <a class="nav-link" style="font-size: 50px; color: white" href="#">Cookbook Club<span class="sr-only">(current)</span>
           </a>
         </li>
+        <div class="div">
         <li class="nav-item">
-          <a id="sign-up-link" style="font-size: 20px; color: black" class="nav-link" href="#sign-up-modal" data-toggle="modal" data-target= "#sign-up-modal">Sign-Up</a>
+          <a id="sign-up-link" class="nav-link" href="#sign-up-modal" data-toggle="modal" data-target= "#sign-up-modal">Sign-Up</a>
+        </li>
+        </div>
+        <div class="div">
+        <li class="nav-item">
+          <a id="sign-in-link" class="nav-link" href="#sign-in-modal" data-toggle="modal" data-target= "#sign-in-modal">Sign-In</a>
+        </li>
+      </div>
+        <li class="nav-item">
+          <a id="change-password-link" style="font-size: 20px; color: white" class="nav-link" href="#change-password-modal" data-toggle="modal" data-target= "#change-password-modal">Change Password</a>
         </li>
         <li class="nav-item">
-          <a id="sign-in-link" style="font-size: 20px; color: black" class="nav-link" href="#sign-in-modal" data-toggle="modal" data-target= "#sign-in-modal">Sign-In</a>
-        </li>
-        <li class="nav-item">
-          <a id="change-password-link" style="font-size: 20px; color: black" class="nav-link" href="#change-password-modal" data-toggle="modal" data-target= "#change-password-modal">Change Password</a>
-        </li>
-        <li class="nav-item">
-          <a id='sign-out' style="font-size: 20px; color: black" class="nav-link" href="#sign-out-modal" data-toggle="modal" data-target= "#sign-out-modal">Sign-Out</a>
+          <a id='sign-out' style="font-size: 20px; color: white" class="nav-link" href="#sign-out-modal" data-toggle="modal" data-target= "#sign-out-modal">Sign-Out</a>
         </li>
       </ul>
     </div>
@@ -107,8 +111,13 @@
 
 <!-- CRUD (recipes)-->
         <button id='view-recipes'>View all Recipes</button>
-        <br>
-        <form id="create-recipe-form">
+        <button id='show-create-form'>Create a Recipe</button>
+        <button id='show-update-form'>Update a Recipe</button>
+        <button id='show-delete-form'>Delete a Recipe</button>
+        <button id='show-view-form'>View Recipe</button>
+
+    <section id='create-recipe'>
+      <form id="create-recipe-form">
         <h4>Create a Recipe!</h4>
           <input id="recipe-title" type="text" placeholder="Enter Recipe Title">
         <input id="recipe-ingredients" type="text" placeholder="List Ingredients">
@@ -116,6 +125,9 @@
           <input id="recipe-notes" type="text" placeholder="Enter Notes here">
           <button>Create a Recipe</button>
       </form>
+    </section>
+
+    <section id="update-recipe">
       <form id="update-recipe-form">
         <h4>Update a Recipe!</h4>
         <input id="update-id" type="number" placeholder="Enter Recipe ID#">
@@ -125,20 +137,27 @@
           <input id="update-notes" type="text" placeholder="Enter Notes here">
           <button>Update a Recipe</button>
       </form>
+    </section>
+
+    <section id='delete-recipe'>
       <form id="delete-recipe-form">
         <h4>Delete a Recipe!</h4>
           <input id="delete-recipe-id" name="recipe-id" type="number" placeholder="Enter Recipe ID#">
           <button>Delete a Recipe</button>
       </form>
+    </section>
+
+    <section id='view-recipe'>
       <form id="view-recipe-form">
         <h4>View a Recipe!</h4>
           <input id="view-recipe-id" name="recipe-id" type="number" placeholder="Enter Recipe ID#">
           <button>View Recipe</button>
       </form>
+    </section>
 
 <!--Resource Display-->
     <div>
-      <h4 class="resource-display"></h4>
+      <h4 id="resource-display"></h4>
     </div>
 
 <!-- Footer-->

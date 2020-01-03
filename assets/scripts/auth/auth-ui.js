@@ -40,19 +40,17 @@ const onSignInSuccess = function (responseData) {
   $('#sign-out').show()
   $('#change-password').show()
   $('#change-password-link').show()
-  $('#create-recipe').show()
-  $('#update-recipe').show()
-  $('#delete-recipe').show()
   $('#view-recipes').show()
-  $('#view-recipe').show()
   $('body').css('background-image', 'none')
   $('body').css('background-color', '#94A5AE')
   $('#create-recipe-form').show()
-  $('#update-recipe-form').show()
-  $('#delete-recipe-form').show()
   $('#view-recipe-form').show()
   $('#footer').show()
   $('.box').css('height', '165px')
+  $('#show-create-form').show()
+  $('#show-update-form').show()
+  $('#show-delete-form').show()
+  $('#show-view-form').show()
 }
 
 const onSignInFailure = function () {
@@ -89,7 +87,7 @@ const onSignOutSuccess = function () {
   $('#delete-recipe-form').hide()
   $('#view-recipes').hide()
   $('#view-recipe-form').hide()
-  $('#row-2').html('')
+  // $('#row-2').html('')
   $('#footer').hide()
   $('.box').css('height', '500px')
 }
@@ -114,9 +112,10 @@ const onCreateRecipeFailure = function (data) {
 }
 
 const onViewRecipesSuccess = function (data) {
-  $('#row-2').html('')
+  console.log('data', data)
+  $('#resource-display').html('')
   const viewRecipesHtml = viewRecipesTemplate({ recipes: data.recipes })
-  $('#row-2').append(viewRecipesHtml)
+  $('#resource-display').append(viewRecipesHtml)
 }
 
 const onViewRecipesFailure = function () {
@@ -125,9 +124,9 @@ const onViewRecipesFailure = function () {
 }
 
 const onViewRecipeSuccess = function (data) {
-  $('#row-2').html('')
+  $('#resource-display').html('')
   const viewRecipeHtml = viewRecipeTemplate({ recipe: data.recipe })
-  $('#row-2').append(viewRecipeHtml)
+  $('#resource-display').append(viewRecipeHtml)
   $('#view-recipe-form').trigger('reset')
 }
 
