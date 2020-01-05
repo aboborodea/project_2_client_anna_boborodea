@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Cookbook Club</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+     <!-- Bootstrap CSS -->
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    </head>
+    <body style="height: 100vh; background-image: url('public/asparagus.jpg'); background-size: cover">
+      <nav class="navbar navbar-expand-lg" style="background: transparent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" style="font-size: 50px; color: white" href="#">Cookbook Club<span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <div class="div">
+        <li class="nav-item">
+          <a id="sign-up-link" class="nav-link" href="#sign-up-modal" data-toggle="modal" data-target= "#sign-up-modal">Sign-Up</a>
+        </li>
+        </div>
+        <div class="div">
+        <li class="nav-item">
+          <a id="sign-in-link" class="nav-link" href="#sign-in-modal" data-toggle="modal" data-target= "#sign-in-modal">Sign-In</a>
+        </li>
+      </div>
+        <li class="nav-item">
+          <a id="change-password-link" style="font-size: 20px; color: white" class="nav-link" href="#change-password-modal" data-toggle="modal" data-target= "#change-password-modal">Change Password</a>
+        </li>
+        <li class="nav-item">
+          <a id='sign-out' style="font-size: 20px; color: white" class="nav-link" href="#sign-out-modal" data-toggle="modal" data-target= "#sign-out-modal">Sign-Out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<!-- Sign-up Modal-->
+  <div class="modal" id="sign-up-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Sign-Up</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="sign-up">
+              <input name="credentials[email]" type="text" placeholder="Enter email">
+              <input name="credentials[password]" type="password" placeholder="Enter password">
+              <input name="credentials[password_confirmation]" type="password" placeholder="Enter password again">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="sign-up-button">Sign-Up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sign-in Modal-->
+    <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Sign-In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="sign-in">
+              <input name="credentials[email]" type="text" placeholder="Enter email">
+              <input name="credentials[password]" type="password" placeholder="Enter password">
+               <!-- type="button" class="btn" data-dismiss="modal" -->
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="sign-in-button">Sign In</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Change Password Modal-->
+      <div class="modal" id="change-password-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Change Password</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="change-password">
+                <input name="passwords[old]" type="password" placeholder="Enter old password">
+                <input name="passwords[new]" type="password" placeholder="Enter new password">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="change-password-button">Change Password</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- CRUD (recipes)-->
+        <button id='view-recipes'>View all Recipes</button>
+        <button id='show-create-form'>Create a Recipe</button>
+        <button id='show-update-form'>Update a Recipe</button>
+        <button id='show-delete-form'>Delete a Recipe</button>
+        <button id='show-view-form'>View Recipe</button>
+
+    <section id='create-recipe'>
+      <form id="create-recipe-form">
+        <h4>Create a Recipe!</h4>
+          <input id="recipe-title" type="text" placeholder="Enter Recipe Title">
+        <input id="recipe-ingredients" type="text" placeholder="List Ingredients">
+          <input id="recipe-instructions" type="text" placeholder="Enter instructions here">
+          <input id="recipe-notes" type="text" placeholder="Enter Notes here">
+          <button>Create a Recipe</button>
+      </form>
+    </section>
+
+    <section id="update-recipe">
+      <form id="update-recipe-form">
+        <h4>Update a Recipe!</h4>
+        <input id="update-id" type="number" placeholder="Enter Recipe ID#">
+          <input id="update-title" type="text" placeholder="Enter Recipe Title">
+          <input id="update-ingredients" type="text" placeholder="List Ingredients">
+          <input id="update-instructions" type="text" placeholder="Enter instructions here">
+          <input id="update-notes" type="text" placeholder="Enter Notes here">
+          <button>Update a Recipe</button>
+      </form>
+    </section>
+
+    <section id='delete-recipe'>
+      <form id="delete-recipe-form">
+        <h4>Delete a Recipe!</h4>
+          <input id="delete-recipe-id" name="recipe-id" type="number" placeholder="Enter Recipe ID#">
+          <button>Delete a Recipe</button>
+      </form>
+    </section>
+
+    <section id='view-recipe'>
+      <form id="view-recipe-form">
+        <h4>View a Recipe!</h4>
+          <input id="view-recipe-id" name="recipe-id" type="number" placeholder="Enter Recipe ID#">
+          <button>View Recipe</button>
+      </form>
+    </section>
+
+<!--Resource Display-->
+    <div>
+      <div id="resource-display"></div>
+    </div>
+
+<!-- Footer-->
+      <footer id="footer"><h4 id="message" class= 'user-message'></h4></footer>
+    </body>
+</html>
